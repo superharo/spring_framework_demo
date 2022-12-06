@@ -14,3 +14,26 @@ spring:
         await-termination: true
         # 等待任务完成的最大时长
         await-termination-period: 60
+    # 自定义异步线程处理器配置
+    execution-one:
+      thread-name-prefix: superh-customize-task-one-
+      pool:
+        core-size: 8
+        max-size: 20
+        keep-alive: 60s
+        queue-capacity: 200
+        allow-core-thread-timeout: true
+      shutdown:
+        await-termination: true
+        await-termination-period: 60
+    execution-two:
+      thread-name-prefix: superh-customize-task-two-
+      pool:
+        core-size: 8
+        max-size: 20
+        keep-alive: 60s
+        queue-capacity: 200
+        allow-core-thread-timeout: true
+      shutdown:
+        await-termination: true
+        await-termination-period: 60

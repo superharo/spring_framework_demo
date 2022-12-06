@@ -1,5 +1,7 @@
 package online.superh.taskasync.service;
 
+import org.springframework.util.concurrent.ListenableFuture;
+
 import java.util.concurrent.Future;
 
 /**
@@ -17,5 +19,11 @@ public interface DemoService {
     Future<Integer> execute01AsyncWithFuture();
 
     Future<Integer> execute02AsyncWithFuture();
+
+    ListenableFuture<Integer> execute01AsyncWithListenableFuture();
+
+    void throwException();
+
+    Integer execute01Customize();
 
 }

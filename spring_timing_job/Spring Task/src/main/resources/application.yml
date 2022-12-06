@@ -1,0 +1,11 @@
+spring:
+  task:
+    scheduling:
+      thread-name-prefix: superh-demo-spring-task
+      pool:
+        size: 10
+      shutdown:
+        # await-termination = true ，实现应用关闭时，等待定时任务执行完成
+        await-termination: true
+        # 等待任务完成的最大时长，单位为秒
+        await-termination-period: 60

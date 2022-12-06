@@ -1,0 +1,15 @@
+server:
+  port: 9090
+xxl:
+  job:
+    # 需要搭建一个 XXL-JOB 调度中心
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    # 执行器
+    executor:
+      appname: xxl-job-executor
+      ip:
+      port: 9999
+      logpath: /logs/xxl-job/xxl-job-executor
+      logretentiondays: 30
+    accessToken: superhxxljob

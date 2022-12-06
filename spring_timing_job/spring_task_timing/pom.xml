@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <artifactId>spring_task</artifactId>
+    <artifactId>spring_task_timing</artifactId>
     <description>Spring Task 定时任务</description>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

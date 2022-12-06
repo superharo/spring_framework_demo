@@ -1,0 +1,16 @@
+spring:
+  task:
+    execution:
+      thread-name-prefix: superh-spring-task-
+      pool:
+        core-size: 8
+        max-size: 20
+        keep-alive: 60s
+        queue-capacity: 200
+        allow-core-thread-timeout: true
+      # 实现 Spring Task 异步任务的优雅关闭
+      shutdown:
+        # 实现应用关闭时，等待异步任务执行完成
+        await-termination: true
+        # 等待任务完成的最大时长
+        await-termination-period: 60

@@ -2,8 +2,8 @@ package online.superh.validation.common.exception;
 
 
 import lombok.Data;
-import online.superh.validation.common.exception.enums.GlobalErrorCodeConstants;
-import online.superh.validation.common.exception.enums.ServiceErrorCodeRange;
+import online.superh.validation.common.enums.GlobalErrorCodeConstants;
+import online.superh.validation.common.enums.ServiceErrorCodeRange;
 
 /**
  * 错误码对象

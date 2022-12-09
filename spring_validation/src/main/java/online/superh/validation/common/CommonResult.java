@@ -6,7 +6,7 @@ import lombok.Data;
 import online.superh.validation.common.exception.ErrorCode;
 import online.superh.validation.common.exception.ServerException;
 import online.superh.validation.common.exception.ServiceException;
-import online.superh.validation.common.exception.enums.GlobalErrorCodeConstants;
+import online.superh.validation.common.enums.GlobalErrorCodeConstants;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;

@@ -2,7 +2,7 @@ package online.superh.validation.common.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import online.superh.validation.common.exception.enums.GlobalErrorCodeConstants;
+import online.superh.validation.common.enums.GlobalErrorCodeConstants;
 
 /**
  * 服务器异常 Exception

@@ -1,4 +1,4 @@
-package online.superh.validation.common.exception.enums;
+package online.superh.validation.common.enums;
 
 
 import online.superh.validation.common.exception.ErrorCode;

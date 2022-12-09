@@ -3,7 +3,7 @@ package online.superh.validation.common.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import online.superh.validation.common.exception.enums.ServiceErrorCodeRange;
+import online.superh.validation.common.enums.ServiceErrorCodeRange;
 
 /**
  * 业务逻辑异常 Exception

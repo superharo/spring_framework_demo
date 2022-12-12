@@ -1,0 +1,106 @@
+management:
+ #  实现 Actuator 自定义端口。避免我们将 Actuator 的端点也暴露出去了,Actuator 还可以自定义每个 Endpoint 的访问路径，SSL 证书等
+  server:
+    port: 8080
+  endpoints:
+    # Actuator HTTP 配置项，对应 WebEndpointProperties 配置类
+    web:
+      # Actuator 提供的 API 接口的根目录。默认为 /actuator
+      base-path: /actuator
+      exposure:
+        # 需要开放的端点。默认值只打开 health 和 info 两个端点。通过设置 * ，可以开放所有端点
+        include: '*'
+        # 在 include 的基础上，需要排除的端点。通过设置 * ，可以排除所有端点
+        exclude:
+
+  endpoint:
+    # shutdown 端点可以实现应用的关闭
+    shutdown:
+      enabled: true
+    # Health 端点配置项，对应 HealthProperties 配置类
+    health:
+      # 开启 health 端点的功能。不过，因为 enabled 默认为 true
+      enabled: true
+      # show-details ：何时显示完整的健康信息
+      show-details: ALWAYS
+      status:
+       http-mapping:
+        # 设置不同健康状态对应的响应状态码
+        DOWN: 503
+       # 健康状态排序值
+       order: DOWN,OUT_OF_SERVICE,UP,UNKNOWN
+    # Info 端点配置项,设置 info 端点的配置项，无对应配置类
+    info:
+      enabled: true # 是否开启。默认为 true 开启。
+    #  设置 metrics 端点的配置项，无对应配置类
+    metrics:
+      enabled: true # 是否开启。默认为 true 开启.
+    # HttpTrace 端点配置项,无对应配置类
+    httptrace:
+      enabled: true # 是否开启。默认为 true 开启
+
+  health:
+    # DiskSpaceHealthIndicator 配置项，对应 DiskSpaceHealthIndicatorProperties
+    diskspace:
+      # 是否开启。默认为 true 开启。
+      enabled: true
+      # 目录。默认为 . 当前目录。
+      path: .
+      # 剩余空间的阀值。默认为 10M 。
+      threshold:
+
+
+  info:
+    # EnvironmentInfoContributor 的配置项，无对应配置类。
+    env:
+      enabled: true
+    # BuildInfoContributor 的配置属性，提供来自构建信息 META-INF/build-info.properties 的应用信息
+    build:
+      enabled: true
+    # GitInfoContributor 的配置属性
+    git:
+      enabled: true
+      mode: SIMPLE # Git 信息展示模式。SIMPLE 默认，只展示精简的 Git 版本信息；FULL 模式，展示完整的 Git 版本信息。
+
+
+#  设置 Metrics 的具体配置项，对应 MetricsProperties 配置类
+  metrics:
+    # 设置指定前缀的指标是否开启
+    enable:
+      xxx: false
+    # 通用 tag
+    tags:
+      application: demo-application
+  # HttpTrace 的具体配置项，对应 HttpTraceProperties 配置类
+
+
+  trace:
+    http:
+      enabled: true # 是否开启。默认为 true 开启。
+      include: # 包含的 trace 项的数组。默认不包含 COOKIE_HEADERS、AUTHORIZATION_HEADER 项。
+  # AuditEventsEndpoint 端点配置项
+
+
+  auditevents:
+    enabled: true # 是否开启。默认为 true 开启
+
+
+# info 配置项，设置应用的信息，无对应配置类
+info:
+  app:
+    # 通过 "@...@" 来读取 Maven 的属性
+    java:
+      # @java.version@ 读取 Maven 构建项目的 Java 版本
+      source: @java.version@
+      target: @java.version@
+    encoding: UTF-8
+    version: @project.version@
+
+spring:
+  # Spring Security 配置项，对应 SecurityProperties 配置类
+  security:
+    # 配置默认的 InMemoryUserDetailsManager 的用户账号与密码。
+    user:
+      name: admin # 账号
+      password: admin123 # 密码
+      roles: ADMIN # 拥有角色

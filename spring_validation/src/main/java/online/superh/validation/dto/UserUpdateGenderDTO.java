@@ -1,5 +1,6 @@
 package online.superh.validation.dto;
 
+import lombok.Data;
 import online.superh.validation.common.enums.GenderEnum;
 import online.superh.validation.common.interfaces.InEnum;
 
@@ -13,17 +14,19 @@ import javax.validation.constraints.NotNull;
  * @description:
  * @date: 2022-12-09 10:30
  */
-public class UserUpdateGenderDTO {
+
+@Data
+public class UserUpdateGenderDTO extends BaseDTO{
 
     public interface Group01 {}
 
     public interface Group02 {}
 
 
-    @NotNull(message = "用户编号不能为空")
-    //国际化
-    // @NotNull(message = "{UserUpdateGenderDTO.id.NotNull}")
-    private Integer id;
+    // @NotNull(message = "用户编号不能为空")
+    // //国际化
+    // // @NotNull(message = "{UserUpdateGenderDTO.id.NotNull}")
+    // private Long id;
 
     @NotNull(message = "性别不能为空")
     @InEnum(value = GenderEnum.class, message = "性别必须是 {value}")

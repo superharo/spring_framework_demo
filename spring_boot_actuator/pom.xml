@@ -40,11 +40,18 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- 引入 Spring Security，对应 测试审计端点  -->
+        <!-- 实现对 Spring Boot Admin Client 的自动化配置 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.6.9</version>
         </dependency>
+
+        <!-- 引入 Spring Security，对应 测试审计端点  -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.springframework.boot</groupId> -->
+        <!--     <artifactId>spring-boot-starter-security</artifactId> -->
+        <!-- </dependency> -->
     </dependencies>
 
     <build>

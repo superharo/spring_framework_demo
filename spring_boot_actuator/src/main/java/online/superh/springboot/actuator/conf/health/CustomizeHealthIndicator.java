@@ -31,6 +31,6 @@ public class CustomizeHealthIndicator extends AbstractHealthIndicator {
     }
 
     private boolean checkSuccess() {
-        return false;
+        return true;
     }
 }

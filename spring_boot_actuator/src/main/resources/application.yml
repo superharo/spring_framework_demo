@@ -1,7 +1,7 @@
 management:
  #  实现 Actuator 自定义端口。避免我们将 Actuator 的端点也暴露出去了,Actuator 还可以自定义每个 Endpoint 的访问路径，SSL 证书等
-  server:
-    port: 8080
+#  server:
+#    port: 18080
   endpoints:
     # Actuator HTTP 配置项，对应 WebEndpointProperties 配置类
     web:
@@ -96,11 +96,22 @@ info:
     encoding: UTF-8
     version: @project.version@
 
+server:
+  port: 18080
+
 spring:
+  application:
+    name: demo-application # 应用名
+  boot:
+    admin:
+      client:
+        enabled: true
+      # Spring Boot Admin Server 地址
+        url: http://127.0.0.1:8080
   # Spring Security 配置项，对应 SecurityProperties 配置类
-  security:
-    # 配置默认的 InMemoryUserDetailsManager 的用户账号与密码。
-    user:
-      name: admin # 账号
-      password: admin123 # 密码
-      roles: ADMIN # 拥有角色
+#  security:
+#    # 配置默认的 InMemoryUserDetailsManager 的用户账号与密码。
+#    user:
+#      name: admin # 账号
+#      password: admin123 # 密码
+#      roles: ADMIN # 拥有角色

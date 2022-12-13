@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -11,11 +10,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>online.superh.redismq</groupId>
-    <artifactId>spring_redis_mq</artifactId>
+    <groupId>online.superh.redisson</groupId>
+    <artifactId>spring_redis_redisson</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>
-        Redis 消息队列练习
+        Redis_redisson 配置
     </description>
 
     <properties>
@@ -25,18 +24,12 @@
     </properties>
 
     <dependencies>
-
         <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <!-- redis  -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.springframework.boot</groupId> -->
-        <!--     <artifactId>spring-boot-starter-data-redis</artifactId> -->
-        <!-- </dependency> -->
         <!-- redisson 包含 spring-data-redis -->
         <dependency>
             <groupId>org.redisson</groupId>
@@ -45,6 +38,12 @@
         </dependency>
 
         <!-- 常用工具 -->
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- lombook -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -57,5 +56,6 @@
             <version>5.8.10</version>
         </dependency>
     </dependencies>
+
 
 </project>

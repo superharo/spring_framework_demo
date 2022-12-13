@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.10</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>online.superh.springsession</groupId>
+    <artifactId>spring_session</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>
+        Session 的一致性，简单来理解，就是相同 sessionid 在多个 Web 容器下，Session 的数据要一致
+        Spring Session 使支持集群会话变得非常简单，无需绑定到特定于应用程序容器的解决方案。它还提供了透明的集成
+        问题：
+            sessionid 的机制，是将当前客户端和服务端的 Session 会话进行绑定。
+            现在，用户会使用多个客户端，这个是目的非常常见的情况。
+            那么，一个用户在多个客户端，会有多个 sessionid ，和服务端的多个 Session 会话进行绑定。
+            我们以购物车的场景举例子，毕竟大家都爱买买买。
+            用户在 PC 浏览器上，添加商品到购物车中，我们选择将该信息存储到 Session 中。
+            那么，如果此时用户在微信小程序中打开购物车，是看不到这个商品的
+            。因为，该用户的 PC 浏览器和微信小程序对应两个不同的 Session
+    </description>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- 实现对 Spring MVC 的自动化配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.superh.springsecurity.rbac.mapper.SysMenuMapper">
+
+    <resultMap id="BaseResultMap" type="online.superh.springsecurity.rbac.pojo.SysMenu">
+            <id property="menuId" column="menu_id" jdbcType="BIGINT"/>
+            <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
+            <result property="parentId" column="parent_id" jdbcType="BIGINT"/>
+            <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
+            <result property="path" column="path" jdbcType="VARCHAR"/>
+            <result property="component" column="component" jdbcType="VARCHAR"/>
+            <result property="isFrame" column="is_frame" jdbcType="INTEGER"/>
+            <result property="menuType" column="menu_type" jdbcType="CHAR"/>
+            <result property="visible" column="visible" jdbcType="CHAR"/>
+            <result property="perms" column="perms" jdbcType="VARCHAR"/>
+            <result property="icon" column="icon" jdbcType="VARCHAR"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        menu_id,menu_name,parent_id,
+        order_num,path,component,
+        is_frame,menu_type,visible,
+        perms,icon,create_by,
+        create_time,update_by,update_time,
+        remark
+    </sql>
+
+    <select id="selectMenuPermsByUserId" parameterType="Long" resultType="String">
+        select distinct m.perms
+        from sys_menu m
+                 left join sys_role_menu rm on m.menu_id = rm.menu_id
+                 left join sys_user_role ur on rm.role_id = ur.role_id
+        where ur.user_id = #{userId}
+    </select>
+
+</mapper>

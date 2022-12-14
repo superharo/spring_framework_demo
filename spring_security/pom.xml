@@ -8,6 +8,7 @@
         <module>spring_security_demo</module>
         <module>spring_security_oauth2_resource</module>
         <module>spring_security_jwt</module>
+        <module>spring_security_rbac_demo</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>

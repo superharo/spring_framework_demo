@@ -3,41 +3,46 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.10</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+    <modules>
+        <module>spring_security_oauth2</module>
+        <module>spring_security_demo</module>
+        <module>spring_security_oauth2_resource</module>
+    </modules>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>online.superh.springsecurity</groupId>
     <artifactId>spring_security</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <description>
-        Spring Security 是一个框架，
-        侧重于为 Java 应用程序提供身份验证和授权
+        Spring Security 版本控制
     </description>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 版本控制 -->
+        <spring.boot.version>2.6.10</spring.boot.version>
+        <oauth2.version>2.6.8</oauth2.version>
     </properties>
 
-    <dependencies>
-        <!-- 实现对 Spring MVC 的自动化配置 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 统一依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-        <!-- 实现对 Spring Security 的自动化配置 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+            <!-- 实现对 Spring Security OAuth2 的自动配置 ,它也引入了 Spring Security 依赖-->
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${oauth2.version}</version>
+            </dependency>
 
-    </dependencies>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

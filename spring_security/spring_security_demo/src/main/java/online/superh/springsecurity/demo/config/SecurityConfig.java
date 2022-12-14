@@ -1,4 +1,4 @@
-package online.superh.springsecurity.config;
+package online.superh.springsecurity.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

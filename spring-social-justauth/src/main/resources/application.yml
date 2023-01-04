@@ -1,0 +1,26 @@
+server:
+  port:
+spring:
+  profiles:
+    active: local
+  application:
+    name: spring-social-justauth
+justauth:
+  enabled: true
+  type:
+    GITEE:
+      #创建成功的应用的id
+      client-id: d186ff7b28fdeaadccda44874e48c276c38ada13eb51416876bff4d018f53156
+      #创建成功的应用的密钥
+      client-secret: eca96710a7c572b94c3aa0c4fd6f5689fcde9be3ab4b5910ec9bcc63dff21818
+      #项目中的回调地址
+      redirect-uri: http://localhost:8080/social/gitee/callback
+    GITHUB:
+      #创建成功的应用的id
+      client-id: 771207f93b7109fe5b29
+      #创建成功的应用的密钥
+      client-secret: 1dabad805388dd74fce62afc92a41f4dd0681661
+      #项目中的回调地址
+      redirect-uri: http://localhost:8080/social/github/callback
+  cache:
+    type: default
